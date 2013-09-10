@@ -26,7 +26,11 @@
 
 namespace Json {
 
-const Value Value::null;
+// This is a walkaround to avoid the static initialization of Value::null.
+// const Value Value::null;
+static const unsigned char kNull[sizeof(Value)] = { 0 };
+const Value& Value::null = reinterpret_cast<const Value&>(kNull);
+
 const Int Value::minInt = Int( ~(UInt(-1)/2) );
 const Int Value::maxInt = Int( UInt(-1)/2 );
 const UInt Value::maxUInt = UInt(-1);

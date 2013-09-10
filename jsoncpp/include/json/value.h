@@ -143,7 +143,7 @@ namespace Json {
       typedef Json::LargestUInt LargestUInt;
       typedef Json::ArrayIndex ArrayIndex;
 
-      static const Value null;
+      static const Value& null;
       /// Minimum signed integer value that can be stored in a Json::Value.
       static const LargestInt minLargestInt;
       /// Maximum signed integer value that can be stored in a Json::Value.
